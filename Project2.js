@@ -5,8 +5,6 @@
 
 var http = require("http"),
 	url = require('url');
-
-var paul = require('/homes/paul/HTML/CS316/p2_req.js');
 	
 const child_process = require('child_process');
 
@@ -109,22 +107,21 @@ function serveHTML(xurl, response){
 		response.end("Error: Cannot Read file!");
 }
 
-// generate a port number between paul.pstart and paul.pend
+// these variables should be replaced by the default settings of the server.
 
-const port = Math.floor(Math.random() * paul.pstart()) + paul.pend(); 
+const port = 3333; 
 
-const hostname = paul.phost();
+const hostname = localhost;
 
 // start the server
 
 var server = http.createServer(myprocess);
 
-mylisten(server,port,hostname,paul.logger);
+mylisten(server,port,hostname);
 
 // listen to http requests
 
-function mylisten(server,port,hostname,logger){
+function mylisten(server,port,hostname){
 
-	logger(port,hostname);
 	server.listen(port,hostname);
 }
